@@ -28,7 +28,7 @@
       --blur: 10px;
     }
 
-    img {
+    img { /*defining some CSS variables */ 
         padding:var(--spacing);
         background:var(--base) ;
         filter: blur(var(--blur));
@@ -64,11 +64,11 @@
     const inputs = document.querySelectorAll('.controls input');
 
     function handleUpdate(){
-      const suffix = this.dataset.sizing || '';
-      document.documentElement.style.setProperty(`--${this.name}`, `${this.value}${suffix}`);
+      const suffix = this.dataset.sizing || ''; //Get the data- of the inputs elements or empty
+      document.documentElement.style.setProperty(`--${this.name}`, `${this.value}${suffix}`); //Define the CSS's Variable's value based in the value of the inputs
     }
 
-    inputs.forEach(input => input.addEventListener('change', handleUpdate));
+    inputs.forEach(input => input.addEventListener('change', handleUpdate)); //Each element of the Node calls the function in case of an event
     inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
   </script>
 
